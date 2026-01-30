@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "title": "Nostalgia Base",
+    "description": "A fun side projects with games like Uno, Tic Tac Toe, And Cards Against Humanity.",
+    "link": "https://uno-game.uno786.partykit.dev/",
+    "tags": [
+      "Next.js",
+      "AI",
+      "Dashboard"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Slanglate",
+    "description": "A webapp designed to translate slang/emojis into normal english.",
+    "link": "https://slanglate.pages.dev/",
+    "tags": [
+      "React",
+      "Three.js",
+      "Stripe"
+    ]
+  }
+]
