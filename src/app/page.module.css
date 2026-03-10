@@ -4,6 +4,17 @@
     flex-direction: column;
 }
 
+/* Shared eyebrow label */
+.eyebrow {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+}
+
 /* About section */
 .aboutSection {
     padding: 0 0 4rem;
@@ -30,30 +41,14 @@
     line-height: 1.8;
 }
 
-@media (max-width: 640px) {
-    .aboutInner {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
 /* Projects section */
 .projectsSection {
-    padding: 7rem 0 5rem;
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
 }
 
 .sectionHeader {
     margin-bottom: 2.5rem;
-}
-
-.eyebrow {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-    opacity: 1;
 }
 
 .sectionTitle {
@@ -61,9 +56,45 @@
     margin-bottom: 0;
 }
 
+/* Stack section */
+.stackSection {
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.stackInner {
+    display: flex;
+    align-items: baseline;
+    gap: 3rem;
+}
+
+.stackLabel {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-dim);
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.stackItems {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
+}
+
+.stackItem {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
 /* Building next strip */
 .buildingSection {
-    padding: 2.5rem 0 5rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
 }
 
 .buildingInner {
@@ -83,7 +114,7 @@
     color: var(--text-dim);
     font-weight: 600;
     white-space: nowrap;
-    opacity: 1;
+    line-height: 1;
 }
 
 .buildingItem {
@@ -104,10 +135,51 @@
     color: var(--text-muted);
 }
 
+/* CTA section */
+.ctaSection {
+    padding: 6rem 0 5rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.ctaInner {
+    max-width: 600px;
+}
+
+.ctaTitle {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.ctaBody {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.65;
+}
+
+.ctaLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    transition: gap 0.25s var(--ease-out-expo), color 0.2s;
+}
+
+.ctaLink:hover {
+    gap: 0.7rem;
+    color: #fff;
+}
+
 /* Footer */
 .footer {
-    margin-top: auto;
-    padding: 2rem 0;
+    padding: 1.75rem 0;
     border-top: 1px solid var(--border);
 }
 
@@ -127,7 +199,7 @@
 .footerYear {
     font-size: 0.75rem;
     color: var(--text-dim);
-    opacity: 1;
+    line-height: 1;
 }
 
 .footerGithub {
@@ -142,14 +214,28 @@
 }
 
 @media (max-width: 640px) {
+    .aboutInner {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .projectsSection {
-        padding: 5rem 0 3rem;
+        padding: 3.5rem 0;
+    }
+
+    .stackInner {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
     .buildingInner {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.75rem;
+    }
+
+    .ctaSection {
+        padding: 4rem 0 3rem;
     }
 
     .footerYear {

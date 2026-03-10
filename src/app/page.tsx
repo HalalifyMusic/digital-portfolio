@@ -1,9 +1,21 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import ProjectGrid from "@/components/ProjectGrid";
+import PrinciplesSection from "@/components/PrinciplesSection";
 import { projects, buildingNext } from "@/actions/projects";
 import styles from "./page.module.css";
-import { Github } from "lucide-react";
+import { Github, ArrowUpRight } from "lucide-react";
+
+const stack = [
+    "TypeScript",
+    "Next.js",
+    "React",
+    "PartyKit",
+    "Cloudflare",
+    "Chrome Extensions",
+    "Framer Motion",
+    "CSS Modules",
+];
 
 export default function Home() {
     return (
@@ -31,6 +43,8 @@ export default function Home() {
                 </div>
             </section>
 
+            <PrinciplesSection />
+
             <section id="projects" className={styles.projectsSection}>
                 <div className="container">
                     <div className={styles.sectionHeader}>
@@ -38,6 +52,19 @@ export default function Home() {
                         <h2 className={styles.sectionTitle}>Things I've built</h2>
                     </div>
                     <ProjectGrid projects={projects} />
+                </div>
+            </section>
+
+            <section className={styles.stackSection}>
+                <div className="container">
+                    <div className={styles.stackInner}>
+                        <p className={styles.stackLabel}>Stack</p>
+                        <div className={styles.stackItems}>
+                            {stack.map(item => (
+                                <span key={item} className={styles.stackItem}>{item}</span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -49,6 +76,26 @@ export default function Home() {
                             <span className={styles.buildingTitle}>{buildingNext.title}</span>
                             <span className={styles.buildingDesc}>{buildingNext.description}</span>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.ctaSection}>
+                <div className="container">
+                    <div className={styles.ctaInner}>
+                        <h2 className={styles.ctaTitle}>Want to work together?</h2>
+                        <p className={styles.ctaBody}>
+                            Open to projects, collaborations, and conversations.
+                        </p>
+                        <a
+                            href="https://github.com/HalalifyMusic"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.ctaLink}
+                        >
+                            Find me on GitHub
+                            <ArrowUpRight size={16} />
+                        </a>
                     </div>
                 </div>
             </section>
