@@ -3,11 +3,13 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-// Simple hardcoded password for demo purposes
-// In production, this should be an env variable
-const ADMIN_PASSWORD = "admin";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
-export async function login(prevState: any, formData: FormData) {
+export async function login(prevState: unknown, formData: FormData) {
+    if (!ADMIN_PASSWORD) {
+        return { error: "Admin access not configured." };
+    }
+
     const password = formData.get("password") as string;
 
     if (password === ADMIN_PASSWORD) {
@@ -15,7 +17,7 @@ export async function login(prevState: any, formData: FormData) {
         cookieStore.set("admin_session", "true", {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            maxAge: 60 * 60 * 24 * 7, // 1 week
+            maxAge: 60 * 60 * 24 * 7,
             path: "/",
         });
         redirect("/admin");

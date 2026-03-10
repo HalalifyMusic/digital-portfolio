@@ -5,34 +5,44 @@
 }
 
 .projectsSection {
-    padding: 8rem 0 10rem;
+    padding: 7rem 0 10rem;
 }
 
+/* Eyebrow + title header */
 .sectionHeader {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+}
+
+.sectionEyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    opacity: 1;
 }
 
 .sectionTitle {
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
 }
 
-.sectionSubtitle {
-    font-size: 1rem;
-    color: #52525b;
-    opacity: 1;
-}
-
-.grid {
+/* ProjectGrid layout — applied via global class in ProjectGrid.tsx */
+:global(.projectGrid) {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
 }
 
+/* Footer */
 .footer {
     margin-top: auto;
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--glass-border);
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footerInner {
@@ -42,35 +52,35 @@
 }
 
 .footerName {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #fff;
+    color: #3f3f46;
     letter-spacing: -0.01em;
 }
 
 .footerText {
-    font-size: 0.8rem;
-    color: #3f3f46;
+    font-size: 0.75rem;
+    color: #27272a;
     opacity: 1;
 }
 
 .footerGithub {
-    color: #52525b;
+    color: #3f3f46;
     transition: color 0.2s;
     display: flex;
     align-items: center;
 }
 
 .footerGithub:hover {
-    color: #fff;
+    color: #a1a1aa;
 }
 
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
+@media (max-width: 640px) {
+    .footerText {
+        display: none;
     }
 
     .projectsSection {
-        padding: 6rem 0 8rem;
+        padding: 5rem 0 7rem;
     }
 }

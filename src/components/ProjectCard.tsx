@@ -7,38 +7,38 @@ import { motion } from "framer-motion";
 
 interface ProjectCardProps {
     project: Project;
+    accent?: string;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, accent = "#8b5cf6" }: ProjectCardProps) {
     return (
-        <motion.div
+        <motion.a
+            href={project.comingSoon ? undefined : project.link}
+            target={project.comingSoon ? undefined : "_blank"}
+            rel={project.comingSoon ? undefined : "noopener noreferrer"}
             className={`${styles.card} ${project.comingSoon ? styles.cardDimmed : ""}`}
-            whileHover={{ y: project.comingSoon ? 0 : -8 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            style={{ "--accent-color": accent } as React.CSSProperties}
+            whileHover={{ y: project.comingSoon ? 0 : -6 }}
+            transition={{ type: "spring", stiffness: 350, damping: 25 }}
         >
+            <div className={styles.accentBar} />
             <div className={styles.glow} />
+
             <div className={styles.content}>
                 <div className={styles.header}>
                     <div className={styles.titleRow}>
                         <h3 className={styles.title}>{project.title}</h3>
-                        {project.comingSoon && (
+                        {project.comingSoon ? (
                             <span className={styles.comingSoonBadge}>
-                                <Clock size={11} />
+                                <Clock size={10} />
                                 Coming Soon
+                            </span>
+                        ) : (
+                            <span className={styles.externalIcon}>
+                                <ExternalLink size={14} />
                             </span>
                         )}
                     </div>
-                    {!project.comingSoon && (
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.linkIcon}
-                            title="Visit Website"
-                        >
-                            <ExternalLink size={16} />
-                        </a>
-                    )}
                 </div>
 
                 <p className={styles.description}>{project.description}</p>
@@ -46,16 +46,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <div className={styles.footer}>
                     <div className={styles.tags}>
                         {project.tags.map((tag) => (
-                            <span key={tag} className={styles.tag}>
-                                {tag}
-                            </span>
+                            <span key={tag} className={styles.tag}>{tag}</span>
                         ))}
                     </div>
                     {!project.comingSoon && (
-                        <ArrowUpRight className={styles.arrow} size={20} />
+                        <ArrowUpRight className={styles.arrow} size={18} />
                     )}
                 </div>
             </div>
-        </motion.div>
+        </motion.a>
     );
 }

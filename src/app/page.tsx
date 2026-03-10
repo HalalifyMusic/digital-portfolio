@@ -1,20 +1,12 @@
-"use client";
-
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import ProjectCard from "@/components/ProjectCard";
-import { getProjects, Project } from "@/actions/projects";
+import ProjectGrid from "@/components/ProjectGrid";
+import { getProjects } from "@/actions/projects";
 import styles from "./page.module.css";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 
-export default function Home() {
-    const [projects, setProjects] = useState<Project[]>([]);
-
-    useEffect(() => {
-        getProjects().then(setProjects);
-    }, []);
+export default async function Home() {
+    const projects = await getProjects();
 
     return (
         <main className={styles.main}>
@@ -23,29 +15,11 @@ export default function Home() {
 
             <section id="projects" className={styles.projectsSection}>
                 <div className="container">
-                    <motion.div
-                        className={styles.sectionHeader}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className={styles.sectionTitle}>Selected Work</h2>
-                        <p className={styles.sectionSubtitle}>Things I've built and shipped.</p>
-                    </motion.div>
-                    <div className={styles.grid}>
-                        {projects.map((project, index) => (
-                            <motion.div
-                                key={project.id}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
-                                <ProjectCard project={project} />
-                            </motion.div>
-                        ))}
+                    <div className={styles.sectionHeader}>
+                        <p className={styles.sectionEyebrow}>Selected Work</p>
+                        <h2 className={styles.sectionTitle}>Things I've built</h2>
                     </div>
+                    <ProjectGrid projects={projects} />
                 </div>
             </section>
 
@@ -53,12 +27,15 @@ export default function Home() {
                 <div className="container">
                     <div className={styles.footerInner}>
                         <span className={styles.footerName}>AK</span>
-                        <p className={styles.footerText}>© {new Date().getFullYear()}</p>
+                        <p className={styles.footerText}>
+                            Built with Next.js · Deployed on Vercel
+                        </p>
                         <a
                             href="https://github.com/HalalifyMusic"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.footerGithub}
+                            aria-label="GitHub"
                         >
                             <Github size={16} />
                         </a>
