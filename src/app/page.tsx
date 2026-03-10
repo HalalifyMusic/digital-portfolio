@@ -1,13 +1,11 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import ProjectGrid from "@/components/ProjectGrid";
-import { getProjects } from "@/actions/projects";
+import { projects } from "@/actions/projects";
 import styles from "./page.module.css";
 import { Github } from "lucide-react";
 
-export default async function Home() {
-    const projects = await getProjects();
-
+export default function Home() {
     return (
         <main className={styles.main}>
             <Nav />
@@ -27,9 +25,7 @@ export default async function Home() {
                 <div className="container">
                     <div className={styles.footerInner}>
                         <span className={styles.footerName}>AK</span>
-                        <p className={styles.footerText}>
-                            Built with Next.js · Deployed on Vercel
-                        </p>
+                        <p className={styles.footerText}>Built with Next.js · Deployed on Vercel</p>
                         <a
                             href="https://github.com/HalalifyMusic"
                             target="_blank"
