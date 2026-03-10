@@ -1,38 +1,46 @@
 .hero {
-    min-height: 95vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding-top: 5rem;
 }
 
 .content {
     position: relative;
     z-index: 10;
-    max-width: 850px;
+    max-width: 750px;
 }
 
 .badge {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 100px;
-    background: rgba(139, 92, 246, 0.1);
+    background: rgba(139, 92, 246, 0.08);
     border: 1px solid rgba(139, 92, 246, 0.2);
     color: #a78bfa;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 500;
     margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
 }
 
 .title {
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
 }
 
 .subtitle {
-    font-size: 1.25rem;
-    color: #a1a1aa;
-    margin-bottom: 3.5rem;
-    max-width: 600px;
+    font-size: 1.2rem;
+    color: #71717a;
+    margin-bottom: 3rem;
+    max-width: 520px;
+    line-height: 1.7;
 }
 
 .actions {
@@ -45,64 +53,73 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1rem 2.5rem;
+    padding: 0.875rem 2rem;
     background: #fff;
     color: #000;
     border-radius: 100px;
     border: none;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
 }
 
 .cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 30px -10px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 28px -8px rgba(255, 255, 255, 0.35);
 }
 
 .secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-weight: 500;
-    color: #fff;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    font-size: 0.95rem;
+    color: #71717a;
+    transition: color 0.2s;
 }
 
 .secondaryCta:hover {
-    opacity: 1;
+    color: #fff;
 }
 
 .glow1,
 .glow2 {
     position: absolute;
     border-radius: 50%;
-    filter: blur(140px);
+    filter: blur(160px);
     z-index: 1;
-    opacity: 0.25;
+    opacity: 0.18;
+    pointer-events: none;
 }
 
 .glow1 {
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     background: var(--primary);
-    top: -200px;
-    right: -100px;
+    top: -250px;
+    right: -150px;
 }
 
 .glow2 {
     width: 500px;
     height: 500px;
     background: var(--secondary);
-    bottom: -100px;
+    bottom: -150px;
     left: -100px;
 }
 
 @media (max-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
     .actions {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .cta {
         width: 100%;
         justify-content: center;

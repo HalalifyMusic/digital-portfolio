@@ -2,23 +2,23 @@
   {
     "id": "1",
     "title": "Nostalgia Base",
-    "description": "A fun side projects with games like Uno, Tic Tac Toe, And Cards Against Humanity.",
+    "description": "A multiplayer game hub with classics like Uno, Tic Tac Toe, and Cards Against Humanity.",
     "link": "https://uno-game.uno786.partykit.dev/",
     "tags": [
       "Next.js",
-      "AI",
-      "Dashboard"
+      "Multiplayer",
+      "PartyKit"
     ]
   },
   {
     "id": "2",
     "title": "Slanglate",
-    "description": "A webapp designed to translate slang/emojis into normal english.",
+    "description": "A web app that translates slang and emojis into plain English.",
     "link": "https://slanglate.pages.dev/",
     "tags": [
       "React",
-      "Three.js",
-      "Stripe"
+      "AI",
+      "Language"
     ]
   }
 ]
