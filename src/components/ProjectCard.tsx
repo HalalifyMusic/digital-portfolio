@@ -27,10 +27,21 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                             <span key={tag} className={styles.tag}>{tag}</span>
                         ))}
                     </div>
-                    <ArrowUpRight className={styles.arrow} size={18} />
+                    <div className={styles.topRight}>
+                        {featured && (
+                            <span className={styles.liveBadge}>
+                                <span className={styles.liveDot} />
+                                Live
+                            </span>
+                        )}
+                        <ArrowUpRight className={styles.arrow} size={18} />
+                    </div>
                 </div>
 
                 <div className={styles.bottom}>
+                    {featured && (
+                        <span className={styles.featuredEyebrow}>Flagship</span>
+                    )}
                     <h3 className={styles.title}>{project.title}</h3>
                     <p className={styles.description}>{project.description}</p>
                 </div>

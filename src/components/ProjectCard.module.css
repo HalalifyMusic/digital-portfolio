@@ -16,13 +16,23 @@
 }
 
 .featuredCard {
-    background: rgba(139, 92, 246, 0.04);
-    border-color: rgba(139, 92, 246, 0.15);
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.07) 0%,
+        rgba(139, 92, 246, 0.02) 60%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+    border-color: rgba(139, 92, 246, 0.18);
 }
 
 .featuredCard:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    background: rgba(139, 92, 246, 0.06);
+    border-color: rgba(139, 92, 246, 0.32);
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.1) 0%,
+        rgba(139, 92, 246, 0.04) 60%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
 }
 
 .inner {
@@ -36,13 +46,14 @@
 }
 
 .featuredCard .inner {
-    min-height: 240px;
+    min-height: 260px;
 }
 
 .top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .tags {
@@ -62,6 +73,42 @@
     letter-spacing: 0.01em;
 }
 
+.topRight {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
+}
+
+.liveBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.18);
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+}
+
+.liveDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
 .arrow {
     color: var(--text-dim);
     opacity: 0;
@@ -79,7 +126,17 @@
 .bottom {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
+}
+
+.featuredEyebrow {
+    display: block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
 }
 
 .title {
@@ -92,7 +149,7 @@
 }
 
 .featuredCard .title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .card:hover .title {
