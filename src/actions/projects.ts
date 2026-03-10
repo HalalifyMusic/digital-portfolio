@@ -10,32 +10,40 @@ export interface Project {
     link: string;
     tags: string[];
     image?: string;
+    comingSoon?: boolean;
 }
 
-const PROJECTS_KEY = "portfolio_projects";
+const PROJECTS_KEY = "portfolio_projects_v2";
 
-// Default projects to seed the database
 const defaultProjects: Project[] = [
     {
         id: "1",
-        title: "AI Dashboard",
-        description: "Modern analytics dashboard built with React and D3.js for visualizing machine learning metrics.",
-        link: "https://example.com/ai-dashboard",
-        tags: ["React", "D3.js", "TypeScript"]
+        title: "Nostalgia Base",
+        description: "A multiplayer game hub with classics like Uno, Tic Tac Toe, and Cards Against Humanity.",
+        link: "https://uno-game.uno786.partykit.dev/",
+        tags: ["Next.js", "Multiplayer", "PartyKit"]
     },
     {
         id: "2",
-        title: "E-Commerce Platform",
-        description: "Full-stack e-commerce solution with Next.js, featuring real-time inventory and payment processing.",
-        link: "https://example.com/ecommerce",
-        tags: ["Next.js", "Stripe", "PostgreSQL"]
+        title: "Slanglate",
+        description: "A web app that translates slang and emojis into plain English.",
+        link: "https://slanglate.pages.dev/",
+        tags: ["React", "AI", "Language"]
     },
     {
         id: "3",
-        title: "Mobile Fitness App",
-        description: "Cross-platform fitness tracking application with workout plans and progress visualization.",
-        link: "https://example.com/fitness",
-        tags: ["React Native", "Firebase", "Health API"]
+        title: "Quran Shield",
+        description: "An Islamic browser extension that helps Muslims stay focused and protected online.",
+        link: "https://quran-shield.vercel.app/",
+        tags: ["Extension", "Islamic", "Next.js"]
+    },
+    {
+        id: "4",
+        title: "HalalifyMusic",
+        description: "A platform for discovering and sharing halal music — built for the Muslim community.",
+        link: "#",
+        tags: ["Music", "Islamic", "Community"],
+        comingSoon: true
     }
 ];
 
@@ -52,14 +60,12 @@ export async function getProjects(): Promise<Project[]> {
         const data = await client.get(PROJECTS_KEY);
 
         if (!data) {
-            // Seed with defaults if empty
             await client.set(PROJECTS_KEY, JSON.stringify(defaultProjects));
             return defaultProjects;
         }
 
         return JSON.parse(data);
-    } catch (error) {
-        console.error("Redis Error:", error);
+    } catch {
         return defaultProjects;
     } finally {
         if (client) await client.disconnect();
@@ -83,7 +89,6 @@ export async function saveProject(project: Project) {
         revalidatePath("/");
         revalidatePath("/admin");
     } catch (error) {
-        console.error("Redis Save Error:", error);
         throw error;
     } finally {
         if (client) await client.disconnect();
@@ -100,7 +105,6 @@ export async function deleteProject(id: string) {
         revalidatePath("/");
         revalidatePath("/admin");
     } catch (error) {
-        console.error("Redis Delete Error:", error);
         throw error;
     } finally {
         if (client) await client.disconnect();

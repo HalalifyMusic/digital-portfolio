@@ -1,7 +1,7 @@
 "use client";
 
 import { Project } from "@/actions/projects";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight, Clock } from "lucide-react";
 import styles from "./ProjectCard.module.css";
 import { motion } from "framer-motion";
 
@@ -11,16 +11,24 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <motion.div 
-            className={styles.card}
-            whileHover={{ y: -10 }}
+        <motion.div
+            className={`${styles.card} ${project.comingSoon ? styles.cardDimmed : ""}`}
+            whileHover={{ y: project.comingSoon ? 0 : -8 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
             <div className={styles.glow} />
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <h3 className={styles.title}>{project.title}</h3>
-                    <div className={styles.links}>
+                    <div className={styles.titleRow}>
+                        <h3 className={styles.title}>{project.title}</h3>
+                        {project.comingSoon && (
+                            <span className={styles.comingSoonBadge}>
+                                <Clock size={11} />
+                                Coming Soon
+                            </span>
+                        )}
+                    </div>
+                    {!project.comingSoon && (
                         <a
                             href={project.link}
                             target="_blank"
@@ -28,9 +36,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             className={styles.linkIcon}
                             title="Visit Website"
                         >
-                            <ExternalLink size={18} />
+                            <ExternalLink size={16} />
                         </a>
-                    </div>
+                    )}
                 </div>
 
                 <p className={styles.description}>{project.description}</p>
@@ -43,7 +51,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             </span>
                         ))}
                     </div>
-                    <ArrowUpRight className={styles.arrow} size={20} />
+                    {!project.comingSoon && (
+                        <ArrowUpRight className={styles.arrow} size={20} />
+                    )}
                 </div>
             </div>
         </motion.div>
