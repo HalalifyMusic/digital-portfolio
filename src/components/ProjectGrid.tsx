@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { Project } from "@/actions/projects";
+import styles from "./ProjectGrid.module.css";
 
 const ACCENTS = ["#06b6d4", "#10b981", "#8b5cf6", "#f59e0b"];
 
@@ -12,7 +13,7 @@ interface ProjectGridProps {
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
     return (
-        <div className="projectGrid">
+        <div className={styles.grid}>
             {projects.map((project, index) => (
                 <motion.div
                     key={project.id}

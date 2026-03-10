@@ -31,12 +31,6 @@
     letter-spacing: -0.03em;
 }
 
-/* ProjectGrid layout — applied via global class in ProjectGrid.tsx */
-:global(.projectGrid) {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.25rem;
-}
 
 /* Footer */
 .footer {
