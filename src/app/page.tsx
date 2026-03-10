@@ -11,6 +11,26 @@ export default function Home() {
             <Nav />
             <Hero />
 
+            <section className={styles.aboutSection}>
+                <div className="container">
+                    <div className={styles.aboutInner}>
+                        <p className={styles.eyebrow}>About</p>
+                        <div className={styles.aboutBody}>
+                            <p className={styles.aboutText}>
+                                I build for the communities I belong to — starting with my own.
+                                Quran Shield exists because I needed it. HalalifyMusic is next
+                                because nobody else is building it right.
+                            </p>
+                            <p className={styles.aboutText}>
+                                I work across an odd range: Islamic productivity tools, multiplayer
+                                games, language tech. What ties it together is conviction — when
+                                something should exist, I build it. No team, no investors, no waiting.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section id="projects" className={styles.projectsSection}>
                 <div className="container">
                     <div className={styles.sectionHeader}>
