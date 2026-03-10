@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     title: "AK — Developer",
     description: "Solo developer building Islamic apps, multiplayer games, language tools, and whatever else sparks an idea.",
     manifest: "/manifest.json",
-    themeColor: "#02000d",
+    themeColor: "#050508",
     appleWebApp: {
         capable: true,
         statusBarStyle: "black-translucent",
@@ -32,7 +34,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                {children}
+                <SmoothScroll>
+                    <ScrollProgress />
+                    {children}
+                </SmoothScroll>
             </body>
         </html>
     );

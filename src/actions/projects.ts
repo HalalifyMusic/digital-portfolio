@@ -4,37 +4,38 @@ export interface Project {
     description: string;
     link: string;
     tags: string[];
+    featured?: boolean;
     comingSoon?: boolean;
 }
 
 export const projects: Project[] = [
     {
+        id: "3",
+        title: "Quran Shield",
+        description: "Islamic browser extension helping Muslims stay focused online. Blocks distractions, surfaces Quran reminders, and protects your attention. Built as a real tool I use daily.",
+        link: "https://quran-shield.vercel.app/",
+        tags: ["Extension", "Islamic", "Next.js"],
+        featured: true
+    },
+    {
         id: "1",
         title: "Nostalgia Base",
-        description: "A multiplayer game hub with classics like Uno, Tic Tac Toe, and Cards Against Humanity.",
+        description: "Real-time multiplayer game hub — Uno, Tic Tac Toe, Cards Against Humanity. Built room-state sync from scratch using PartyKit.",
         link: "https://uno-game.uno786.partykit.dev/",
         tags: ["Next.js", "Multiplayer", "PartyKit"]
     },
     {
         id: "2",
         title: "Slanglate",
-        description: "A web app that translates slang and emojis into plain English.",
+        description: "Translate internet slang and emojis into plain English. For anyone who's stared at a text and had no idea what it meant.",
         link: "https://slanglate.pages.dev/",
         tags: ["React", "AI", "Language"]
     },
-    {
-        id: "3",
-        title: "Quran Shield",
-        description: "An Islamic browser extension that helps Muslims stay focused and protected online.",
-        link: "https://quran-shield.vercel.app/",
-        tags: ["Extension", "Islamic", "Next.js"]
-    },
-    {
-        id: "4",
-        title: "HalalifyMusic",
-        description: "A platform for discovering and sharing halal music — built for the Muslim community.",
-        link: "#",
-        tags: ["Music", "Islamic", "Community"],
-        comingSoon: true
-    }
 ];
+
+export const buildingNext: Pick<Project, 'id' | 'title' | 'description' | 'tags'> = {
+    id: "4",
+    title: "HalalifyMusic",
+    description: "A platform for discovering and sharing halal music — built for the Muslim community.",
+    tags: ["Music", "Islamic", "Community"]
+};
