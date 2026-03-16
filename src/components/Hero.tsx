@@ -35,7 +35,7 @@ export default function Hero() {
 
                         <div className={styles.metrics}>
                             <div className={styles.metricItem}>
-                                <span className={styles.metricValue}>3</span>
+                                <span className={styles.metricValue}>4</span>
                                 <span className={styles.metricLabel}>Apps shipped</span>
                             </div>
                             <div className={styles.metricDivider} />

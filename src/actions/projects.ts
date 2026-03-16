@@ -31,6 +31,13 @@ export const projects: Project[] = [
         link: "https://slanglate.pages.dev/",
         tags: ["React", "AI", "Language"]
     },
+    {
+        id: "5",
+        title: "LLM Pricing",
+        description: "Compare pricing across 56+ language models from 11 providers. Cost calculator for estimating real monthly spend based on token usage.",
+        link: "https://llm-pricing-theta.vercel.app/",
+        tags: ["Next.js", "AI", "Tool"]
+    },
 ];
 
 export const buildingNext: Pick<Project, 'id' | 'title' | 'description' | 'tags'> = {
